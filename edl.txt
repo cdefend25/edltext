@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html>
-
-<body>
-    <p>www.google.com
-    <www class="edlcl com"></www>
-    </p>
-</body>
-</html>
+www.google.com
+www.oracle.com
+www.gmail.com
+www.facebook.com
+www.hinge.com
+www.cnn.com
