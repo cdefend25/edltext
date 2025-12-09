@@ -1,0 +1,10 @@
+*.google.com
+*.facebook.com
+*.youtube.com
+*.instagram.com
+*.twitter.com
+*.linkedin.com
+*.microsoft.com
+*.googletagmanager.com
+*.apple.com
+*.github.com
